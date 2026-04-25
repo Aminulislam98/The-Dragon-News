@@ -12,6 +12,7 @@
 
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -23,13 +24,27 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function LogInPage() {
-  const onSubmit = (e) => {
+  const [errorMsg, setErrorMsg] = useState(null);
+  const onSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ email, password });
+
+    const { data, error } = await authClient.signIn.email({
+      email, // user email address
+      password, // user password -> min 8 characters by default
+      rememberMe: true,
+      callbackURL: "/",
+    });
+    console.log(data, error);
+    if (error) {
+      setErrorMsg(error?.message);
+    } else {
+      setErrorMsg(null);
+    }
   };
 
   return (
@@ -93,9 +108,12 @@ export default function LogInPage() {
             </Button>
           </div>
         </Form>
+        <div>
+          {errorMsg && <p className="text-rose-600">{`${errorMsg}`}</p>}
+        </div>
         <h2 className="font-semibold text-base">
           Dont’t Have An Account ?{" "}
-          <Link href={`/register`} className="font-semibold text-[#F75B5F]">
+          <Link href={`/register`} className="font-semibold text-green-600">
             Register
           </Link>
         </h2>

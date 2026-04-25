@@ -44,11 +44,11 @@ export default function LogInPage() {
         password, // user password -> min 8 characters by default
         name, // user display name
       },
-      // {
-      //   onSuccess: () => {
-      //     redirect("/login");
-      //   },
-      // },
+      {
+        onSuccess: () => {
+          redirect("/login");
+        },
+      },
     );
     if (error) {
       setErrorMsg(error?.message);
