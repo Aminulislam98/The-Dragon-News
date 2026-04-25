@@ -1,22 +1,9 @@
 import Categories from "@/components/homePage/Categories";
 import CategoriesLink from "@/components/shared/CategoriesLink";
+import { getCategories, getCategoriesNews } from "@/lib/data";
 import Link from "next/link";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-const getCategories = async () => {
-  const response = await fetch(
-    "https://openapi.programming-hero.com/api/news/categories",
-  );
-  const data = await response.json();
-  return data;
-};
-const getCategoriesNews = async (category_id) => {
-  const response = await fetch(
-    `https://openapi.programming-hero.com/api/news/category/${category_id}`,
-  );
-  const data = await response.json();
-  return data.data;
-};
 
 const CategoryNewsPage = async ({ params }) => {
   const { id } = await params;
