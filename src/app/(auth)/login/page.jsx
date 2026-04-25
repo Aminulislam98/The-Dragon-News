@@ -27,8 +27,9 @@ import Link from "next/link";
 export default function LogInPage() {
   const onSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    console.log(formData);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ email, password });
   };
 
   return (
