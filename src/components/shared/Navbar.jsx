@@ -34,8 +34,8 @@ const Navbar = () => {
       <div className="flex items-center gap-3 ml-auto">
         <Image src={userAvatar} width={41} height={41} alt="userAvatar" />
 
-        <Link href="#">
-          <button className="bg-[#403F3F] text-white py-2 px-5 text-lg font-medium rounded cursor-pointer">
+        <Link href={`/login`}>
+          <button className="bg-[#403F3F] text-white py-2 px-10 text-lg font-medium cursor-pointer">
             Login
           </button>
         </Link>
