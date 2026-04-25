@@ -6,9 +6,22 @@ import React from "react";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaArrowLeft, FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+  const news = await getNewsDetailed(id);
+  return {
+    title: news.title,
+    description: news.details,
+  };
+};
+// export const metadata = {
+//   title: "News Details | The Dragon News",
+//   description: "The news portal in Bangladesh",
+// };
+
 const NewsDetailsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(id, "This is Id");
+
   const news = await getNewsDetailed(id);
   const {
     details,

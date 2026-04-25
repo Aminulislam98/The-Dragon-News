@@ -6,9 +6,20 @@ import Link from "next/link";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+  const index = Number(id) - 1;
+  const dataAllCategory = await getCategories();
+  const categoryList = dataAllCategory?.data?.news_category;
+  const currentCategory = categoryList ? categoryList[index] : null;
+  return {
+    title: `${currentCategory?.category_name} | The Dragon News`,
+    // description: news.details,
+  };
+};
+
 const CategoryNewsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(id, "idNumber");
   const dataAllCategory = await getCategories();
   const categoriesData = dataAllCategory?.data?.news_category;
 
