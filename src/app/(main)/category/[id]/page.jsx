@@ -1,4 +1,5 @@
 import Categories from "@/components/homePage/Categories";
+import NewsCard from "@/components/homePage/NewsCard";
 import CategoriesLink from "@/components/shared/CategoriesLink";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import Link from "next/link";
@@ -23,13 +24,15 @@ const CategoryNewsPage = async ({ params }) => {
           ></Categories>
         </div>
         {/* news */}
-        <div className="col-span-6 bg-gray-50">
+        <div className="col-span-6 ">
           <div className="flex flex-col gap-4">
             {newsByCategory.length > 0 ? (
               newsByCategory.map((news) => (
-                <p className="py-4 bg-purple-100" key={news._id}>
-                  {news.title}
-                </p>
+                <NewsCard
+                  className="py-4 bg-purple-100"
+                  key={news._id}
+                  news={news}
+                ></NewsCard>
               ))
             ) : (
               <div className="max-w-4xl mx-auto p-4">
