@@ -2,6 +2,7 @@ import Categories from "@/components/homePage/Categories";
 import NewsCard from "@/components/homePage/NewsCard";
 import CategoriesLink from "@/components/shared/CategoriesLink";
 import { getCategories, getCategoriesNews } from "@/lib/data";
+import ScrollToTop from "@/lib/ScrollToTop";
 import Link from "next/link";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
@@ -26,6 +27,7 @@ const CategoryNewsPage = async ({ params }) => {
   const newsByCategory = await getCategoriesNews(id);
   return (
     <section className="max-w-full w-full">
+      <ScrollToTop news={id}></ScrollToTop>
       <div className="grid grid-cols-12 max-w-7xl w-full mx-auto gap-4">
         {/* all categories */}
         <div className="col-span-3">
