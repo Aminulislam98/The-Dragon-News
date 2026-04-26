@@ -61,6 +61,7 @@ const Navbar = () => {
               height={41}
               alt="userAvatar"
               className="rounded-full"
+              priority
             />
             <Link href={`/`}>
               <button

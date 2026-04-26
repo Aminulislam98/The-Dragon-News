@@ -11,8 +11,9 @@ const Header = () => {
           src={Logo}
           width={400}
           height={400}
+          priority
           alt="Logo"
-          className="mb-5 "
+          className="mb-5 h-12 w-auto"
         ></Image>
         <p className="text-lg text-[#706F6F] font-normal mb-2.5">
           Journalism Without Fear or Favour

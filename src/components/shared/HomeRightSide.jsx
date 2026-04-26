@@ -1,11 +1,8 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import userAvatar from "@/assets/user.png";
 
 const HomeRightSide = () => {
   const [image, setImage] = useState(null);
@@ -22,7 +19,6 @@ const HomeRightSide = () => {
   useEffect(() => {
     const getSession = async () => {
       const session = await authClient.getSession();
-      console.log(session?.data?.user?.image);
       setImage(session?.data?.user?.image);
     };
     getSession();

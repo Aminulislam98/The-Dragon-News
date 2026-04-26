@@ -1,14 +1,8 @@
 import Categories from "@/components/homePage/Categories";
 import NewsCard from "@/components/homePage/NewsCard";
-import CategoriesLink from "@/components/shared/CategoriesLink";
 import HomeRightSide from "@/components/shared/HomeRightSide";
-import { authClient } from "@/lib/auth-client";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import ScrollToTop from "@/lib/ScrollToTop";
-import Link from "next/link";
-import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-
 export const generateMetadata = async ({ params }) => {
   const { id } = await params;
   const index = Number(id) - 1;

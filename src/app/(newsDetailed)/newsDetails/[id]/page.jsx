@@ -1,3 +1,4 @@
+import HomeRightSide from "@/components/shared/HomeRightSide";
 import { getNewsDetailed } from "@/lib/data";
 import ScrollToTop from "@/lib/ScrollToTop";
 import Image from "next/image";
@@ -56,6 +57,7 @@ const NewsDetailsPage = async ({ params }) => {
                 height={420}
                 src={image_url}
                 alt="news"
+                priority
                 className="w-full h-105 object-cover rounded-lg"
               />
             </div>
