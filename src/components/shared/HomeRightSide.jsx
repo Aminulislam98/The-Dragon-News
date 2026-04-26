@@ -30,13 +30,6 @@ const HomeRightSide = () => {
 
   return (
     <div className="max-w-full w-full">
-      <Image
-        width={50}
-        height={50}
-        alt="ProfilePhoto"
-        src={image ? image : userAvatar}
-        className="rounded-full"
-      ></Image>
       <h1 className="font-semibold text-xl mb-5">Login With</h1>
       <div className="flex flex-col gap-2 mb-5">
         <button

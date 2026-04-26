@@ -9,6 +9,8 @@ import { authClient } from "@/lib/auth-client";
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+  const userProfileImage = session?.user?.image;
+
   return (
     <nav className="max-w-7xl w-full mx-auto flex items-center justify-between py-4 relative">
       {/* Left (can be logo later) */}
@@ -53,7 +55,13 @@ const Navbar = () => {
         ) : user ? (
           <>
             <h2 className="font-semibold">{`Hello, ${user?.name}`}</h2>
-            <Image src={userAvatar} width={41} height={41} alt="userAvatar" />
+            <Image
+              src={userProfileImage ? userProfileImage : userAvatar}
+              width={41}
+              height={41}
+              alt="userAvatar"
+              className="rounded-full"
+            />
             <Link href={`/`}>
               <button
                 onClick={async () => {
