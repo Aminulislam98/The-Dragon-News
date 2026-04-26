@@ -1,6 +1,8 @@
 import Categories from "@/components/homePage/Categories";
 import NewsCard from "@/components/homePage/NewsCard";
 import CategoriesLink from "@/components/shared/CategoriesLink";
+import HomeRightSide from "@/components/shared/HomeRightSide";
+import { authClient } from "@/lib/auth-client";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import ScrollToTop from "@/lib/ScrollToTop";
 import Link from "next/link";
@@ -25,6 +27,7 @@ const CategoryNewsPage = async ({ params }) => {
   const categoriesData = dataAllCategory?.data?.news_category;
 
   const newsByCategory = await getCategoriesNews(id);
+
   return (
     <section className="max-w-full w-full">
       <ScrollToTop news={id}></ScrollToTop>
@@ -63,42 +66,7 @@ const CategoryNewsPage = async ({ params }) => {
         </div>
         {/* socials */}
         <div className="col-span-3 ">
-          <div className="max-w-full w-full">
-            <h1 className="font-semibold text-xl mb-5">Login With</h1>
-            <div className="flex flex-col gap-2 mb-5">
-              <Link
-                href={"#"}
-                className="font-medium text-blue-500 py-1 flex justify-center items-center max-w-full text-sm w-full border rounded gap-1 hover:cursor-pointer"
-              >
-                <FaGoogle />
-                Login with Google
-              </Link>
-              <Link
-                href={"#"}
-                className="font-medium text-black-500 py-1 flex justify-center items-center max-w-full text-sm w-full border rounded gap-1 hover:cursor-pointer"
-              >
-                <FaGithub />
-                Login with GitHub
-              </Link>
-            </div>
-            <div>
-              <h1 className="font-semibold text-xl mb-5">Find Us On</h1>
-              <div className="border border-gray-200 rounded">
-                <button className="max-w-full w-full p-4 font-medium text-base border-b border-b-gray-200 flex flex-row justify-start items-center gap-2 cursor-pointer hover:bg-gray-100">
-                  <FaFacebook className="text-xl" />
-                  Facebook
-                </button>
-                <button className="max-w-full w-full p-4 font-medium text-base border-b border-b-gray-200 flex flex-row justify-start items-center gap-2 cursor-pointer hover:bg-gray-100">
-                  <AiFillTwitterCircle className="text-xl" />
-                  Twitter
-                </button>
-                <button className="max-w-full w-full p-4 font-medium text-base  flex flex-row justify-start items-center gap-2 cursor-pointer hover:bg-gray-100">
-                  <AiFillInstagram className="text-xl" />
-                  Instagram
-                </button>
-              </div>
-            </div>
-          </div>
+          <HomeRightSide></HomeRightSide>
         </div>
       </div>
     </section>

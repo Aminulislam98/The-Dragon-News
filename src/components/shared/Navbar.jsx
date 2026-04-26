@@ -5,12 +5,10 @@ import userAvatar from "@/assets/user.png";
 import Image from "next/image";
 import NavLink from "./NavLink";
 import { authClient } from "@/lib/auth-client";
-import { Avatar } from "@heroui/react";
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-  console.log(user);
   return (
     <nav className="max-w-7xl w-full mx-auto flex items-center justify-between py-4 relative">
       {/* Left (can be logo later) */}

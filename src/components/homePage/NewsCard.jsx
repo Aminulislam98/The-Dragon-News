@@ -16,7 +16,6 @@ const NewsCard = ({ news }) => {
     rating,
     _id,
   } = news;
-  console.log(news);
   return (
     // Main container (full width)
 
